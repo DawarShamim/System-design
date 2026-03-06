@@ -2,7 +2,7 @@ using System;
 
 namespace SRP
 {
-    // ❌ Bad Implementation Example
+    // Bad Implementation Example
     class UserServiceBad
     {
         public static void CreateUser(string name)
@@ -12,7 +12,7 @@ namespace SRP
 
         public void SendEmailNotification(string userEmail)
         {
-            // ❌ notification responsibility
+            //  notification responsibility
         }
     }
 

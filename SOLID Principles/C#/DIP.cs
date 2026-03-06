@@ -1,48 +1,73 @@
 // D - Dependency Inversion Principle (DIP)
 
 // Bad Implementation Example:
-interface MessageService {
-  sendMessage(msg: string): void;
+
+using System;
+
+namespace DIP
+{
+    // Bad Implementation Example:
+    class EmailServiceBad
+    {
+        public void SendMessage(string msg)
+        {
+            Console.WriteLine($"Email sent: {msg}");
+        }
+    }
+
+    class NotificationBad
+    {
+        private readonly EmailServiceBad _emailService = new EmailServiceBad();
+
+        public void Notify(string msg)
+        {
+            _emailService.SendMessage(msg);
+        }
+    }
+
+    // Actual Implementation
+
+    // Abstraction
+    interface IMessageService
+    {
+        void SendMessage(string msg);
+    }
+
+    // Concrete implementation
+    class EmailService : IMessageService
+    {
+        public void SendMessage(string msg)
+        {
+            Console.WriteLine($"Email sent: {msg}");
+        }
+    }
+
+    // High-level module depends on abstraction
+    class Notification
+    {
+        private readonly IMessageService _service;
+
+        public Notification(IMessageService service)
+        {
+            _service = service;
+        }
+
+        public void Notify(string msg)
+        {
+            _service.SendMessage(msg);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IMessageService emailService = new EmailService();
+            Notification notification = new Notification(emailService);
+
+            notification.Notify("Hello");
+        }
+    }
+
+
 }
-
-// Direct dependency on concrete class
-class NotificationBad {
-  private emailService = new EmailService();
-
-  notify(msg: string) {
-    this.emailService.sendMessage(msg);
-  }
-}
-
-class EmailServiceBad {
-  sendMessage(msg: string) {
-    console.log(`Email sent: ${msg}`);
-  }
-}
-
-const notificationB = new NotificationBad();
-notificationB.notify('Hello');
-
-
-
-// Actual Implementation
-
-interface MessageService {
-  sendMessage(msg: string): void;
-}
-
-class EmailService implements MessageService {
-  sendMessage(msg: string) {
-    console.log(`Email sent: ${msg}`);
-  }
-}
-
-class NotificationA {
-  constructor(private service: MessageService) {}
-  notify(msg: string) {
-    this.service.sendMessage(msg);
-  }
-}
-
-const notification = new NotificationA(new EmailService());
-notification.notify('Hello');

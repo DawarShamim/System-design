@@ -1,65 +1,109 @@
 // L - Liskov Substitution Principle (LSP)
 
 // Bad Implementation Example:
-class BirdBad {
-  fly() { }
+namespace BAD_LSP
+{
+    class Bird
+    {
+        public virtual void Fly()
+        {
+            Console.WriteLine("Bird is flying");
+        }
+    }
+
+    class Duck : Bird
+    {
+        public override void Fly()
+        {
+            Console.WriteLine("Duck is flying");
+        }
+    }
+
+    class Penguin : Bird
+    {
+        public override void Fly()
+        {
+            throw new Exception("Penguins cannot fly");
+        }
+    }
+
+    class BirdActions
+    {
+        public static void MakeBirdFly(Bird bird)
+        {
+            bird.Fly();
+        }
+    }
+
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            BirdActions.MakeBirdFly(new Duck());
+
+            // This compiles but breaks at runtime
+            // BirdActions.MakeBirdFly(new Penguin());
+        }
+    }
 }
-
-class Duck extends BirdBad {
-  fly() {console.log('Duck is flying'); }
-}
-
-class Penguin extends BirdBad {
-  fly() { throw new Error('Penguins cannot fly'); }
-}
-
-function makeBirdFly(bird: BirdBad) {
-  bird.fly();
-}
-
-makeBirdFly(new Duck());
-// This function is unneccessarily attached to Penguin
-//makeBirdFly(new Penguin());
-
 
 
 // Actual Implementation
-interface Bird { }
+namespace LSP
+{
+  interface IBird { }
 
-interface FlyingBird extends Bird {
-  fly(): void;
-}
-
-interface WalkingBird extends Bird {
-  walk(): void;
-}
-
-class Pigeon implements FlyingBird, WalkingBird {
-  fly() {
-    console.log('Pigeon is flying');
+  interface IFlyingBird : IBird
+  {
+    void Fly();
   }
-  walk() {
-    console.log('Pigeon is walking');
+
+  interface IWalkingBird : IBird
+  {
+    void Walk();
   }
-}
 
-class Kiwi implements WalkingBird {
-  walk() {
-    console.log('Kiwi is walking');
+  class Pigeon : IFlyingBird, IWalkingBird
+  {
+    public void Fly()
+    {
+      Console.WriteLine("Pigeon is flying");
+    }
+
+    public void Walk()
+    {
+      Console.WriteLine("Pigeon is walking");
+    }
   }
+
+  class Kiwi : IWalkingBird
+  {
+    public override void Walk() { Console.WriteLine("Kiwi is walking"); }
+  }
+
+  class BirdActions
+  {
+    public static void MakeFly(IFlyingBird bird)
+    {
+      bird.Fly();
+    }
+
+    public static void MakeWalk(IWalkingBird bird)
+    {
+      bird.Walk();
+    }
+  }
+  class Program
+  {
+    public static void Main(string[] args)
+    {
+      var kiwi = new Kiwi();
+      var pigeon = new Pigeon();
+
+      BirdActions.MakeFly(pigeon);   // Pigeon flies
+      BirdActions.MakeWalk(pigeon);  // Pigeon walks
+      BirdActions.MakeWalk(kiwi);    // Kiwi walks
+    }
+  }
+
 }
-
-function makeFly(bird: FlyingBird) {
-  bird.fly();
-}
-
-function makeWalk(bird: WalkingBird) {
-  bird.walk();
-}
-
-const kiwi = new Kiwi();
-const pigeon = new Pigeon();
-
-makeFly(pigeon);      // Duck flies
-makeWalk(pigeon);     // Duck walks
-makeWalk(kiwi);  // Penguin walks
