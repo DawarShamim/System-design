@@ -1,0 +1,50 @@
+interface State {
+    insertCoin(): void
+    selectItem(): void
+}
+
+
+class NoCoinState implements State {
+    constructor(private machine: VendingMachine) { }
+
+    insertCoin() {
+        console.log("Coin inserted")
+        this.machine.setState(this.machine.hasCoinState)
+    }
+
+    selectItem() { console.log("Insert coin first") }
+}
+
+class HasCoinState implements State {
+    constructor(private machine: VendingMachine) { }
+
+    insertCoin() { console.log("Coin already inserted") }
+
+    selectItem() {
+        console.log("Dispensing item")
+        this.machine.setState(this.machine.noCoinState)
+    }
+}
+
+
+class VendingMachine {
+    noCoinState: State
+    hasCoinState: State
+    private currentState: State
+
+    constructor() {
+        this.noCoinState = new NoCoinState(this)
+        this.hasCoinState = new HasCoinState(this)
+        this.currentState = this.noCoinState
+    }
+
+    setState(state: State) { this.currentState = state }
+    insertCoin() { this.currentState.insertCoin() }
+    selectItem() { this.currentState.selectItem() }
+}
+
+const machine = new VendingMachine()
+
+machine.selectItem() // Insert coin first
+machine.insertCoin() // Coin inserted
+machine.selectItem() // Dispensing item
