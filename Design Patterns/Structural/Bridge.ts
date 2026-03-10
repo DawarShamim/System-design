@@ -1,3 +1,4 @@
+// designed upfront to keep two hierarchies intentionally separate so they can evolve independently.
 type AlertData = {
   service: string,
   error: string,

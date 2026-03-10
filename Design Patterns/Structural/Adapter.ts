@@ -1,6 +1,5 @@
 // Also Known As Wrapper
-// use to interface two uncompatible Types
-
+//fixes an incompatibility that already exists. it's applied after the fact to make two things work together.
 interface MediaPlayer {
     play(fileName: string): void
     pause(): void

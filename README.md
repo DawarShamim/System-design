@@ -15,8 +15,26 @@ D - Dependency Inversion Principle (DIP)
 
 
 ### Design Patterns
-#### Creational Design Patterns
+#### Creational
 * Singleton
 * Factory
 * Abstract Factory
 * Builder  
+* Prototype
+#### Structural
+* Adapter
+* Bridge
+* Composite
+* Decorator  
+* Facade
+* Flyweight
+* Proxy
+#### Behavioral
+* Chain of Responsibility
+* Command
+* Mediator
+* Observer  
+* State
+* Strategy
+* Template
+* Visitor
