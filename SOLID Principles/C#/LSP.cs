@@ -3,48 +3,48 @@
 // Bad Implementation Example:
 namespace BAD_LSP
 {
-    class Bird
+  class Bird
+  {
+    public virtual void Fly()
     {
-        public virtual void Fly()
-        {
-            Console.WriteLine("Bird is flying");
-        }
+      Console.WriteLine("Bird is flying");
     }
+  }
 
-    class Duck : Bird
+  class Duck : Bird
+  {
+    public override void Fly()
     {
-        public override void Fly()
-        {
-            Console.WriteLine("Duck is flying");
-        }
+      Console.WriteLine("Duck is flying");
     }
+  }
 
-    class Penguin : Bird
+  class Penguin : Bird
+  {
+    public override void Fly()
     {
-        public override void Fly()
-        {
-            throw new Exception("Penguins cannot fly");
-        }
+      throw new Exception("Penguins cannot fly");
     }
+  }
 
-    class BirdActions
+  class BirdActions
+  {
+    public static void MakeBirdFly(Bird bird)
     {
-        public static void MakeBirdFly(Bird bird)
-        {
-            bird.Fly();
-        }
+      bird.Fly();
     }
+  }
 
-    class Program
+  class Program
+  {
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            BirdActions.MakeBirdFly(new Duck());
+      BirdActions.MakeBirdFly(new Duck());
 
-            // This compiles but breaks at runtime
-            // BirdActions.MakeBirdFly(new Penguin());
-        }
+      // This compiles but breaks at runtime
+      // BirdActions.MakeBirdFly(new Penguin());
     }
+  }
 }
 
 
@@ -84,14 +84,10 @@ namespace LSP
   class BirdActions
   {
     public static void MakeFly(IFlyingBird bird)
-    {
-      bird.Fly();
-    }
+    { bird.Fly(); }
 
     public static void MakeWalk(IWalkingBird bird)
-    {
-      bird.Walk();
-    }
+    { bird.Walk(); }
   }
   class Program
   {

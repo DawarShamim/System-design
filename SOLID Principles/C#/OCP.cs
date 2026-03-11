@@ -29,50 +29,37 @@ namespace OCP
   // Actual Implementation Example:
 
   interface IPaymentMethod
-  {
-    void Pay(int amount);
-  }
+  { void Pay(int amount); }
 
   class CreditCardPayment : IPaymentMethod
   {
     public void Pay(int amount)
-    {
-      Console.WriteLine($"Paid {amount} using Credit Card");
-    }
+    { Console.WriteLine($"Paid {amount} using Credit Card"); }
   }
 
   class PayPalPayment : IPaymentMethod
   {
     public void Pay(int amount)
-    {
-      Console.WriteLine($"Paid {amount} using PayPal");
-    }
+    { Console.WriteLine($"Paid {amount} using PayPal"); }
   }
 
   class CryptoPayment : IPaymentMethod
   {
     public void Pay(int amount)
-    {
-
-      Console.WriteLine($"Paid {amount} using Crypto");
-    }
+    { Console.WriteLine($"Paid {amount} using Crypto"); }
   }
 
   class PaymentProcessor
   {
     public void Process(IPaymentMethod PaymentMethod, int amount)
-    {
-      PaymentMethod.Pay(amount);
-    }
+    { PaymentMethod.Pay(amount); }
   }
 
   //  Modified: Extension 
   class ApplePayPayment : IPaymentMethod
   {
     public void Pay(int amount)
-    {
-      Console.WriteLine($"Paid {amount} using Apple Pay");
-    }
+    { Console.WriteLine($"Paid {amount} using Apple Pay"); }
   }
 
 

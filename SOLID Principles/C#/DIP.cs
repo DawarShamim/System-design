@@ -20,26 +20,20 @@ namespace DIP
         private readonly EmailServiceBad _emailService = new EmailServiceBad();
 
         public void Notify(string msg)
-        {
-            _emailService.SendMessage(msg);
-        }
+        { _emailService.SendMessage(msg); }
     }
 
     // Actual Implementation
 
     // Abstraction
     interface IMessageService
-    {
-        void SendMessage(string msg);
-    }
+    { void SendMessage(string msg); }
 
     // Concrete implementation
     class EmailService : IMessageService
     {
         public void SendMessage(string msg)
-        {
-            Console.WriteLine($"Email sent: {msg}");
-        }
+        { Console.WriteLine($"Email sent: {msg}"); }
     }
 
     // High-level module depends on abstraction
@@ -48,14 +42,10 @@ namespace DIP
         private readonly IMessageService _service;
 
         public Notification(IMessageService service)
-        {
-            _service = service;
-        }
+        { _service = service; }
 
         public void Notify(string msg)
-        {
-            _service.SendMessage(msg);
-        }
+        { _service.SendMessage(msg); }
     }
 
     class Program
@@ -64,7 +54,6 @@ namespace DIP
         {
             IMessageService emailService = new EmailService();
             Notification notification = new Notification(emailService);
-
             notification.Notify("Hello");
         }
     }

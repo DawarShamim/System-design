@@ -22,32 +22,22 @@ namespace ISP
     public void Print() { Console.WriteLine("Printing document"); }
 
     public void Scan()
-    {
-      throw new NotImplementedException("SimplePrinter cannot scan");
-    }
+    { throw new NotImplementedException("SimplePrinter cannot scan"); }
 
     public void Fax()
-    {
-      throw new NotImplementedException("SimplePrinter cannot fax");
-    }
+    { throw new NotImplementedException("SimplePrinter cannot fax"); }
   }
 
   // Actual IMPLEMENTATION (ISP Applied)
 
   interface IAPrinter
-  {
-    void Print();
-  }
+  { void Print(); }
 
   interface IScanner
-  {
-    void Scan();
-  }
+  { void Scan(); }
 
   interface IFax
-  {
-    void Fax();
-  }
+  { void Fax(); }
 
 
   interface IMultiPrinter : IAPrinter, IScanner, IFax { }
@@ -55,27 +45,19 @@ namespace ISP
   public class MultiFuncPrinter : IMultiPrinter
   {
     public void Print()
-    {
-      Console.WriteLine("Printing document");
-    }
+    { Console.WriteLine("Printing document"); }
 
     public void Scan()
-    {
-      Console.WriteLine("Scanning document");
-    }
+    { Console.WriteLine("Scanning document"); }
 
     public void Fax()
-    {
-      Console.WriteLine("Faxing document");
-    }
+    { Console.WriteLine("Faxing document"); }
   }
 
   public class ASimplePrinter : IAPrinter
   {
     public void Print()
-    {
-      Console.WriteLine("Printing document");
-    }
+    { Console.WriteLine("Printing document"); }
   }
 
   class Program

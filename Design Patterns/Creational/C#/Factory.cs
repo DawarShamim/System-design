@@ -4,26 +4,21 @@ using System.Collections.Generic;
 namespace Factory
 {
     abstract class Logger
-    {
-        public abstract void Log(string msg);
-    }
+    { public abstract void Log(string msg); }
 
     class ConsoleLogger : Logger
     {
-        public override void Log(string msg)
-        { Console.WriteLine("Console Log: " + msg); }
+        public override void Log(string msg) { Console.WriteLine("Console Log: " + msg); }
     }
 
     class DBLogger : Logger
     {
-        public override void Log(string msg)
-        { Console.WriteLine("DB Log: " + msg); }
+        public override void Log(string msg) { Console.WriteLine("DB Log: " + msg); }
     }
 
     class DebugLogger : Logger
     {
-        public override void Log(string msg)
-        { Console.WriteLine("Debug Log: " + msg); }
+        public override void Log(string msg) { Console.WriteLine("Debug Log: " + msg); }
     }
 
     class LogFactory
@@ -33,8 +28,7 @@ namespace Factory
         public static void RegisterLogger(string type, Func<Logger> loggerCreator)
         { loggers[type] = loggerCreator; }
 
-        public static Logger GetLogger(string type)
-        { return loggers[type](); }
+        public static Logger GetLogger(string type) { return loggers[type](); }
     }
 
     class Program
