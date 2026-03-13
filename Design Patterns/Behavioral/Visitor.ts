@@ -1,28 +1,28 @@
-interface Visitor {
+interface IVisitor {
   visitBook(book: Book): void
   visitElectronics(electronics: Electronics): void
 }
 
-interface Product {
-  accept(visitor: Visitor): void
+interface IProduct {
+  accept(visitor: IVisitor): void
 }
 
-class Book implements Product {
+class Book implements IProduct {
   constructor(public price: number) {}
 
-  accept(visitor: Visitor) {
+  accept(visitor: IVisitor) {
     visitor.visitBook(this)
   }
 }
-class Electronics implements Product {
+class Electronics implements IProduct {
   constructor(public price: number) {}
 
-  accept(visitor: Visitor) {
+  accept(visitor: IVisitor) {
     visitor.visitElectronics(this)
   }
 }
 
-class TaxVisitor implements Visitor {
+class TaxVisitor implements IVisitor {
   visitBook(book: Book) {
     const tax = book.price * 0.05
     console.log(`Book tax: $${tax}`)
@@ -34,7 +34,7 @@ class TaxVisitor implements Visitor {
   }
 }
 
-const products: Product[] = [
+const products: IProduct[] = [
   new Book(30),
   new Electronics(500)
 ]

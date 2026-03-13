@@ -28,14 +28,14 @@ type PaymentData = {
   reason?: string
 }
 
-interface NotificationChannel {
+interface INotificationChannel {
     send(recipient: string, subject: string, body: string): void
 }
 
 abstract class A_Notification<T> {
-  constructor(protected channel: NotificationChannel) { }
+  constructor(protected channel: INotificationChannel) { }
 
-  setChannel(channel: NotificationChannel): void {
+  setChannel(channel: INotificationChannel): void {
     this.channel = channel
   }
 
@@ -43,7 +43,7 @@ abstract class A_Notification<T> {
 }
 
 
-class SlackChannel implements NotificationChannel {
+class SlackChannel implements INotificationChannel {
     send(to: string, subject: string, body: string): void {
         console.log(`[SLACK] Channel: ${to}`)
         console.log(`        *${subject}*`)
@@ -51,7 +51,7 @@ class SlackChannel implements NotificationChannel {
     }
 }
 
-class SMSChannel implements NotificationChannel {
+class SMSChannel implements INotificationChannel {
     send(to: string, _subject: string, body: string): void {
         // SMS has no subject — silently ignored
         const truncated = body.length > 160 ? body.slice(0, 157) + "..." : body
@@ -59,7 +59,7 @@ class SMSChannel implements NotificationChannel {
     }
 }
 
-class EmailChannel implements NotificationChannel {
+class EmailChannel implements INotificationChannel {
     send(to: string, subject: string, body: string): void {
         console.log(`[EMAIL] To: ${to}`)
         console.log(`        Subject: ${subject}`)

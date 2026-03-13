@@ -1,61 +1,61 @@
 // Abstract Factory creates a whole family of Products i.e. DErived classes changes based on the parent factory selected
 
-interface Button {
+interface IButton {
     render(): void
 }
 
-interface Checkbox {
+interface ICheckbox {
     check(): void
 }
 
 
-class WindowsButton implements Button {
+class WindowsButton implements IButton {
     render() {
         console.log("Rendering Windows Button")
     }
 }
 
-class WindowsCheckbox implements Checkbox {
+class WindowsCheckbox implements ICheckbox {
     check() {
         console.log("Checking Windows Checkbox")
     }
 }
 
-class MacButton implements Button {
+class MacButton implements IButton {
     render() {
         console.log("Rendering Mac Button")
     }
 }
 
-class MacCheckbox implements Checkbox {
+class MacCheckbox implements ICheckbox {
     check() {
         console.log("Checking Mac Checkbox")
     }
 }
 
 interface GUIFactory {
-    createButton(): Button
-    createCheckbox(): Checkbox
+    createButton(): IButton
+    createCheckbox(): ICheckbox
 }
 
 class WindowsFactory implements GUIFactory {
 
-    createButton(): Button {
+    createButton(): IButton {
         return new WindowsButton()
     }
 
-    createCheckbox(): Checkbox {
+    createCheckbox(): ICheckbox {
         return new WindowsCheckbox()
     }
 }
 
 class MacFactory implements GUIFactory {
 
-    createButton(): Button {
+    createButton(): IButton {
         return new MacButton()
     }
 
-    createCheckbox(): Checkbox {
+    createCheckbox(): ICheckbox {
         return new MacCheckbox()
     }
 }

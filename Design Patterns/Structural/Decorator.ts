@@ -1,26 +1,20 @@
 // lets you attach new behaviors to objects by placing these objects inside
 // special wrapper objects that contain the behaviors
 
-
-// ============================================================
-// DECORATOR PATTERN — Coffee Shop
-// Wraps an object to add behaviour without changing its class
-// ============================================================
-
-interface Coffee {
+interface ICoffee {
     cost(): number
     description(): string
 }
 
 // Base component
-class SimpleCoffee implements Coffee {
+class SimpleCoffee implements ICoffee {
     cost() { return 2 }
     description() { return "Coffee" }
 }
 
 // Decorators
-abstract class CoffeeDecorator implements Coffee {
-    constructor(protected coffee: Coffee) {}
+abstract class CoffeeDecorator implements ICoffee {
+    constructor(protected coffee: ICoffee) {}
     abstract cost(): number
     abstract description(): string
 }
@@ -41,7 +35,7 @@ class Vanilla extends CoffeeDecorator {
     description() { return this.coffee.description() + ", Vanilla" }
 }
 
-let coffee: Coffee = new SimpleCoffee()
+let coffee: ICoffee = new SimpleCoffee()
 console.log(coffee.description(), `$${coffee.cost()}`)
 
 coffee = new Milk(coffee)

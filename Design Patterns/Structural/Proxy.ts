@@ -1,6 +1,5 @@
 //  lets you provide a substitute or placeholder for another object.
 
-
 class BankAccount {
   withdraw(amount: number) {
     console.log(`Withdrawing $${amount} from bank account`)
@@ -20,7 +19,6 @@ class ATMProxy {
     this.account.withdraw(amount)
   }
 }
-
 
 const account = new BankAccount()
 const atm = new ATMProxy(account)

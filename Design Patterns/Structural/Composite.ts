@@ -1,23 +1,21 @@
 // use for treating objects or group of object the same way  
-interface SmartDevice {
+interface ISmartDevice {
     turnOn(): void
     turnOff(): void
 }
 
-class Device implements SmartDevice {
+class Device implements ISmartDevice {
     constructor(private name: string) { }
-
     turnOn() { console.log(this.name + " turned ON") }
-
     turnOff() { console.log(this.name + " turned OFF") }
 }
 
-class DeviceGroup implements SmartDevice {
-    private devices: SmartDevice[] = []
+class DeviceGroup implements ISmartDevice {
+    private devices: ISmartDevice[] = []
 
     constructor(private name: string) { }
 
-    add(device: SmartDevice) { this.devices.push(device) }
+    add(device: ISmartDevice) { this.devices.push(device) }
 
     turnOn() {
         console.log("Turning ON group: " + this.name)

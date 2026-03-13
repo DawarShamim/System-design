@@ -24,17 +24,17 @@ makeBirdFly(new Duck());
 
 
 // Actual Implementation
-interface Bird { }
+interface IBird { }
 
-interface FlyingBird extends Bird {
+interface IFlyingBird extends IBird {
   fly(): void;
 }
 
-interface WalkingBird extends Bird {
+interface IWalkingBird extends IBird {
   walk(): void;
 }
 
-class Pigeon implements FlyingBird, WalkingBird {
+class Pigeon implements IFlyingBird, IWalkingBird {
   fly() {
     console.log('Pigeon is flying');
   }
@@ -43,17 +43,17 @@ class Pigeon implements FlyingBird, WalkingBird {
   }
 }
 
-class Kiwi implements WalkingBird {
+class Kiwi implements IWalkingBird {
   walk() {
     console.log('Kiwi is walking');
   }
 }
 
-function makeFly(bird: FlyingBird) {
+function makeFly(bird: IFlyingBird) {
   bird.fly();
 }
 
-function makeWalk(bird: WalkingBird) {
+function makeWalk(bird: IWalkingBird) {
   bird.walk();
 }
 

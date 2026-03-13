@@ -1,10 +1,10 @@
-interface State {
+interface IState {
     insertCoin(): void
     selectItem(): void
 }
 
 
-class NoCoinState implements State {
+class NoCoinState implements IState {
     constructor(private machine: VendingMachine) { }
 
     insertCoin() {
@@ -15,7 +15,7 @@ class NoCoinState implements State {
     selectItem() { console.log("Insert coin first") }
 }
 
-class HasCoinState implements State {
+class HasCoinState implements IState {
     constructor(private machine: VendingMachine) { }
 
     insertCoin() { console.log("Coin already inserted") }
@@ -28,9 +28,9 @@ class HasCoinState implements State {
 
 
 class VendingMachine {
-    noCoinState: State
-    hasCoinState: State
-    private currentState: State
+    noCoinState: IState
+    hasCoinState: IState
+    private currentState: IState
 
     constructor() {
         this.noCoinState = new NoCoinState(this)
@@ -38,7 +38,7 @@ class VendingMachine {
         this.currentState = this.noCoinState
     }
 
-    setState(state: State) { this.currentState = state }
+    setState(state: IState) { this.currentState = state }
     insertCoin() { this.currentState.insertCoin() }
     selectItem() { this.currentState.selectItem() }
 }

@@ -1,15 +1,15 @@
 // used for Real Updates 
-interface Observer { update(data: any): void; }
+interface IObserver { update(data: any): void; }
 
 
-interface Subject {
+interface ISubject {
   attach(observer: Observer): void;
   detach(observer: Observer): void;
   notify(): void;
 }
 
 
-class ConcreteSubject implements Subject {
+class Subject implements ISubject {
   private observers: Observer[] = [];
   private state: string = "";
 
@@ -28,17 +28,17 @@ class ConcreteSubject implements Subject {
 }
 
 
-class ConcreteObserver implements Observer {
+class Observer implements IObserver {
   constructor(private name: string) { }
 
   update(data: any): void { console.log(`${this.name} received update: ${data}`); }
 }
 
 
-const subject = new ConcreteSubject();
+const subject = new Subject();
 
-const observer1 = new ConcreteObserver("Observer 1");
-const observer2 = new ConcreteObserver("Observer 2");
+const observer1 = new Observer("Observer 1");
+const observer2 = new Observer("Observer 2");
 
 subject.attach(observer1);
 subject.attach(observer2);

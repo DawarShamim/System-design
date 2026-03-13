@@ -1,6 +1,6 @@
 // Also Known As Wrapper
 //fixes an incompatibility that already exists. it's applied after the fact to make two things work together.
-interface MediaPlayer {
+interface IMediaPlayer {
     play(fileName: string): void
     pause(): void
     stop(): void
@@ -20,7 +20,7 @@ class QuickTimePlayer {
     eject(): void { console.log(`[QuickTime] Media ejected`) }
 }
 
-class VLCAdapter implements MediaPlayer {
+class VLCAdapter implements IMediaPlayer {
     private vlc: VLCPlayer
 
     constructor() { this.vlc = new VLCPlayer() }
@@ -35,7 +35,7 @@ class VLCAdapter implements MediaPlayer {
     stop(): void { this.vlc.closeFile() }
 }
 
-class QuickTimeAdapter implements MediaPlayer {
+class QuickTimeAdapter implements IMediaPlayer {
     private qt: QuickTimePlayer
 
     constructor() { this.qt = new QuickTimePlayer() }
@@ -51,13 +51,13 @@ class QuickTimeAdapter implements MediaPlayer {
 }
 
 class AudioSystem {
-    private player: MediaPlayer
+    private player: IMediaPlayer
 
-    constructor(player: MediaPlayer) {
+    constructor(player: IMediaPlayer) {
         this.player = player
     }
 
-    setPlayer(player: MediaPlayer): void { this.player = player }
+    setPlayer(player: IMediaPlayer): void { this.player = player }
 
     playTrack(file: string): void {
         console.log(`AudioSystem: playing "${file}"`)

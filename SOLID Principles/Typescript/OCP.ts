@@ -27,36 +27,36 @@ BadProcessor.process("Bitcoin", 200);     // Invalid Payment Method
 
 // Actual Implementation Example:
 
-interface PaymentMethod {
+interface IPaymentMethod {
   pay(amount: number): void;
 }
 
-class CreditCardPayment implements PaymentMethod {
+class CreditCardPayment implements IPaymentMethod {
   pay(amount: number): void {
     console.log(`Paid ${amount} using Credit Card`);
   }
 }
 
-class PayPalPayment implements PaymentMethod {
+class PayPalPayment implements IPaymentMethod {
   pay(amount: number): void {
     console.log(`Paid ${amount} using PayPal`);
   }
 }
 
-class CryptoPayment implements PaymentMethod {
+class CryptoPayment implements IPaymentMethod {
   pay(amount: number): void {
     console.log(`Paid ${amount} using Crypto`);
   }
 }
 
 class PaymentProcessor {
-  process(paymentMethod: PaymentMethod, amount: number): void {
+  process(paymentMethod: IPaymentMethod, amount: number): void {
     paymentMethod.pay(amount);
   }
 }
 
 //  Modified: Extension 
-class ApplePayPayment implements PaymentMethod {
+class ApplePayPayment implements IPaymentMethod {
   pay(amount: number): void {
     console.log(`Paid ${amount} using Apple Pay`);
   }

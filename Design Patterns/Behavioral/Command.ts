@@ -1,4 +1,4 @@
-interface Command {
+interface ICommand {
     execute(): void
     undo(): void
 }
@@ -7,14 +7,14 @@ class Light {
     turnOn() { console.log("Light ON") }
     turnOff() { console.log("Light OFF") }
 }
-class LightOnCommand implements Command {
+class LightOnCommand implements ICommand {
     constructor(private light: Light) { }
 
     execute() { this.light.turnOn() }
     undo() { this.light.turnOff() }
 }
 
-class LightOffCommand implements Command {
+class LightOffCommand implements ICommand {
     constructor(private light: Light) { }
 
     execute() { this.light.turnOff() }
@@ -22,9 +22,9 @@ class LightOffCommand implements Command {
 }
 
 class RemoteControl {
-    private history: Command[] = []
+    private history: ICommand[] = []
 
-    pressButton(command: Command) {
+    pressButton(command: ICommand) {
         command.execute()
         this.history.push(command)
     }

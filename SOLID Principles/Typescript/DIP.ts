@@ -1,7 +1,7 @@
 // D - Dependency Inversion Principle (DIP)
 
 // Bad Implementation Example:
-interface MessageService {
+interface IMessageService {
   sendMessage(msg: string): void;
 }
 
@@ -27,18 +27,18 @@ notificationB.notify('Hello');
 
 // Actual Implementation
 
-interface MessageService {
+interface IMessageService {
   sendMessage(msg: string): void;
 }
 
-class EmailService implements MessageService {
+class EmailService implements IMessageService {
   sendMessage(msg: string) {
     console.log(`Email sent: ${msg}`);
   }
 }
 
 class NotificationA {
-  constructor(private service: MessageService) {}
+  constructor(private service: IMessageService) {}
   notify(msg: string) {
     this.service.sendMessage(msg);
   }

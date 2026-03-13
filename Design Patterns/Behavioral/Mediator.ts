@@ -1,11 +1,10 @@
 //Centralizes complex communication between objects.
 
-interface AirTrafficMediator {
+interface IAirTrafficMediator {
     sendMessage(message: string, airplane: Airplane): void
 }
 
-
-class AirTrafficControl implements AirTrafficMediator {
+class AirTrafficControl implements IAirTrafficMediator {
     private airplanes: Airplane[] = []
 
     registerAirplane(airplane: Airplane) { this.airplanes.push(airplane) }
@@ -22,7 +21,7 @@ class AirTrafficControl implements AirTrafficMediator {
 
 class Airplane {
     constructor(
-        private mediator: AirTrafficMediator,
+        private mediator: IAirTrafficMediator,
         public name: string
     ) { }
 
