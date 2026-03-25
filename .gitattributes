@@ -1,0 +1,7 @@
+# Force GitHub to detect C# files
+*.cs linguist-detectable=true
+*.csproj linguist-detectable=true
+
+# Exclude build output from stats
+obj/** linguist-vendored=true
+bin/** linguist-vendored=true
