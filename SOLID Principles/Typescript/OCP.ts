@@ -64,12 +64,18 @@ class ApplePayPayment implements IPaymentMethod {
 
 
 
+export {
+  PayProcessor,
+  PaymentProcessor,
+  CreditCardPayment,
+  PayPalPayment,
+  CryptoPayment,
+  ApplePayPayment,
+};
+export type { IPaymentMethod };
+
 
 const processor = new PaymentProcessor();
 processor.process(new CreditCardPayment(), 200);
 processor.process(new ApplePayPayment(), 200);
-
-
-
-
 
