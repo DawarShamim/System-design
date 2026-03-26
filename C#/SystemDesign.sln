@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLIDPrinciples", "SOLIDPrinciples\SOLIDPrinciples.csproj", "{346EE597-19DE-4A43-984A-1C49D8ED2F85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOLIDPrinciples", "SOLIDPrinciples", "{59896B04-EDB9-453C-B64B-1FBC399FA070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID.Tests", "SOLID.Tests\SOLID.Tests.csproj", "{6C8B9472-B63B-43F8-8FEA-459808345AB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{346EE597-19DE-4A43-984A-1C49D8ED2F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346EE597-19DE-4A43-984A-1C49D8ED2F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346EE597-19DE-4A43-984A-1C49D8ED2F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346EE597-19DE-4A43-984A-1C49D8ED2F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8B9472-B63B-43F8-8FEA-459808345AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8B9472-B63B-43F8-8FEA-459808345AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8B9472-B63B-43F8-8FEA-459808345AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8B9472-B63B-43F8-8FEA-459808345AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{346EE597-19DE-4A43-984A-1C49D8ED2F85} = {59896B04-EDB9-453C-B64B-1FBC399FA070}
+		{6C8B9472-B63B-43F8-8FEA-459808345AB0} = {59896B04-EDB9-453C-B64B-1FBC399FA070}
+	EndGlobalSection
+EndGlobal

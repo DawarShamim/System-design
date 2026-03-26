@@ -1,1 +1,114 @@
-/node_modules
+# ============================================================
+#  .gitignore for System-Design repo
+#  Covers: C# (.NET), TypeScript (Node), and IDE/OS files
+# ============================================================
+
+
+# ── C# / .NET ────────────────────────────────────────────────
+
+# Build output
+bin/
+obj/
+
+# NuGet packages (restored via dotnet restore, never commit these)
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# .NET user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Roslyn / code analysis caches
+.vs/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.psess
+*.vsp
+*.vspx
+
+# Local secrets (never commit these)
+appsettings.Development.json
+secrets.json
+
+
+# ── TypeScript / Node ────────────────────────────────────────
+
+# Dependencies (restored via npm install)
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+
+# Type declaration cache
+*.tsbuildinfo
+
+# Environment files (may contain secrets)
+.env
+.env.local
+.env.*.local
+
+# Test coverage reports
+coverage/
+lcov.info
+*.lcov
+
+# npm / yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+
+# ── IDE & Editors ────────────────────────────────────────────
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json   # keep shared extension recommendations if you have them
+
+# JetBrains Rider / IntelliJ
+.idea/
+*.iml
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# Vim / Emacs swap files
+*.swp
+*.swo
+*~
+
+
+# ── OS generated files ───────────────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~

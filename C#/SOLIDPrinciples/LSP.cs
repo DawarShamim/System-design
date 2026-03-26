@@ -78,7 +78,7 @@ namespace LSP
 
   class Kiwi : IWalkingBird
   {
-    public override void Walk() { Console.WriteLine("Kiwi is walking"); }
+    public void Walk() { Console.WriteLine("Kiwi is walking"); }
   }
 
   class BirdActions
