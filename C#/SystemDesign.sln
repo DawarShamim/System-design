@@ -13,6 +13,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP", "OOP\OOP.csproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP.Tests", "OOP.Tests\OOP.Tests.csproj", "{52059E2A-9950-43BB-BD5E-A40AE375203B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design Patterns", "Design Patterns", "{837BE5E4-3DFA-8F18-8167-125F075A5993}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structural", "Design Patterns\Structural\Structural.csproj", "{91D907EC-A000-4294-8537-E59181BFA972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structural.Tests", "Design Patterns\Structural.Tests\Structural.Tests.csproj", "{EB2A7696-C753-41CF-8623-A944F22F188A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral", "Design Patterns\Behavioral\Behavioral.csproj", "{91D907EC-A000-4294-8537-E59181BFA972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Tests", "Design Patterns\Behavioral.Tests\Behavioral.Tests.csproj", "{EB2A7696-C753-41CF-8623-A944F22F188A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creational", "Design Patterns\Creational\Creational.csproj", "{91D907EC-A000-4294-8537-E59181BFA972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creational.Tests", "Design Patterns\Creational.Tests\Creational.Tests.csproj", "{EB2A7696-C753-41CF-8623-A944F22F188A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +85,30 @@ Global
 		{52059E2A-9950-43BB-BD5E-A40AE375203B}.Release|x64.Build.0 = Release|Any CPU
 		{52059E2A-9950-43BB-BD5E-A40AE375203B}.Release|x86.ActiveCfg = Release|Any CPU
 		{52059E2A-9950-43BB-BD5E-A40AE375203B}.Release|x86.Build.0 = Release|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Debug|x64.Build.0 = Debug|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Debug|x86.Build.0 = Debug|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Release|x64.ActiveCfg = Release|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Release|x64.Build.0 = Release|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Release|x86.ActiveCfg = Release|Any CPU
+		{91D907EC-A000-4294-8537-E59181BFA972}.Release|x86.Build.0 = Release|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Debug|x64.Build.0 = Debug|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Debug|x86.Build.0 = Debug|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Release|x64.ActiveCfg = Release|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Release|x64.Build.0 = Release|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB2A7696-C753-41CF-8623-A944F22F188A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +116,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{346EE597-19DE-4A43-984A-1C49D8ED2F85} = {59896B04-EDB9-453C-B64B-1FBC399FA070}
 		{6C8B9472-B63B-43F8-8FEA-459808345AB0} = {59896B04-EDB9-453C-B64B-1FBC399FA070}
+		{91D907EC-A000-4294-8537-E59181BFA972} = {837BE5E4-3DFA-8F18-8167-125F075A5993}
+		{EB2A7696-C753-41CF-8623-A944F22F188A} = {837BE5E4-3DFA-8F18-8167-125F075A5993}
 	EndGlobalSection
 EndGlobal

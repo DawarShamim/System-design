@@ -1,38 +1,41 @@
 //  lets you provide a substitute or placeholder for another object.
 using System;
-class BankAccount
+namespace Proxy
 {
-  public void Withdraw(int amount)
+  public class BankAccount
   {
-    Console.WriteLine($"Withdrawing $${amount} from bank account");
-  }
-}
-
-class ATMProxy
-{
-  private readonly BankAccount _account;
-  public ATMProxy(BankAccount account)
-  { _account = account; }
-  public void Withdraw(int amount, int pin)
-  {
-    if (pin != 1234)
+    public void Withdraw(int amount)
     {
-      Console.WriteLine("Invalid PIN");
-      return;
+      Console.WriteLine($"Withdrawing $${amount} from bank account");
     }
-
-    Console.WriteLine("PIN verified");
-    _account.Withdraw(amount);
   }
-}
-class Program
-{
-  public static void Main(string[] args)
+
+  public class ATMProxy
   {
+    private readonly BankAccount _account;
+    public ATMProxy(BankAccount account)
+    { _account = account; }
+    public void Withdraw(int amount, int pin)
+    {
+      if (pin != 1234)
+      {
+        Console.WriteLine("Invalid PIN");
+        return;
+      }
 
-    var account = new BankAccount();
-    var atm = new ATMProxy(account);
-
-    atm.Withdraw(200, 1234);
+      Console.WriteLine("PIN verified");
+      _account.Withdraw(amount);
+    }
   }
-}
+  class Program
+  {
+    public static void Main(string[] args)
+    {
+
+      var account = new BankAccount();
+      var atm = new ATMProxy(account);
+
+      atm.Withdraw(200, 1234);
+    }
+  }
+};
